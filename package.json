@@ -1,0 +1,13 @@
+{
+  "name": "node-red-disguise-http",
+  "version": "0.0.1",
+  "description": "Helper nodes for interacting with the disguise HTTP API",
+  "author": "Andy Briggs",
+  "license": "MIT",
+  "node-red": {
+    "version": ">=3.0.0",
+    "nodes": {
+      "disguise-http": "disguise-http.js"
+    }
+  }
+}

@@ -1,0 +1,79 @@
+<script type="text/javascript">
+  RED.nodes.registerType('extract-system',{
+      category: 'disguise',
+      color: '#c3c3c3',
+      defaults: {
+          name: { value:"" },
+          hostname: { value: "andyb" },
+      },
+      inputs: 1,
+      outputs: 1,
+      icon: "file.svg",
+      label: function() {
+          return this.name||"extract-system";
+      }
+  });
+</script>
+
+<script type="text/html" data-template-name="extract-system">
+  <label for="node-input-hostname">Hostname</label>
+  <input type="text" id="node-input-hostname" placeholder="vx4-12345">
+</script>
+
+<script type="text/html" data-help-name="extract-system">
+  <p>Finds a system in the disguise service detect systems API response</p>
+</script>
+
+
+<script type="text/javascript">
+  RED.nodes.registerType('extract-health',{
+      category: 'disguise',
+      color: '#c3c3c3',
+      defaults: {
+          name: { value:"" },
+          hostname: { value: "andyb-laptop" },
+      },
+      inputs: 1,
+      outputs: 1,
+      icon: "file.svg",
+      label: function() {
+          return this.name||"extract-health";
+      }
+  });
+</script>
+
+<script type="text/html" data-template-name="extract-health">
+  <label for="node-input-hostname">Hostname</label>
+  <input type="text" id="node-input-hostname" placeholder="vx4-12345">
+</script>
+
+<script type="text/html" data-help-name="extract-health">
+  <p>Finds a system in the disguise session health API response</p>
+</script>
+
+
+<script type="text/javascript">
+  RED.nodes.registerType('extract-health-state',{
+      category: 'disguise',
+      color: '#c3c3c3',
+      defaults: {
+          name: { value:"" },
+          stateName: { value: "Genlock" },
+      },
+      inputs: 1,
+      outputs: 1,
+      icon: "file.svg",
+      label: function() {
+          return this.name||"extract-health-state";
+      }
+  });
+</script>
+
+<script type="text/html" data-template-name="extract-health-state">
+  <label for="node-input-stateName">State Name</label>
+  <input type="text" id="node-input-stateName" placeholder="Genlock">
+</script>
+
+<script type="text/html" data-help-name="extract-health-state">
+  <p>Finds a given health state in the disguise session health API response</p>
+</script>
