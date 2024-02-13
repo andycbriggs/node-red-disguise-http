@@ -1,0 +1,182 @@
+[
+    {
+        "id": "f52f0411d560d0ad",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "05606a30204be44b",
+        "type": "debug",
+        "z": "f52f0411d560d0ad",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 960,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "b8706ea2e643158f",
+        "type": "inject",
+        "z": "f52f0411d560d0ad",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 190,
+        "y": 240,
+        "wires": [
+            [
+                "38a0c0cb4f4b63dd",
+                "be8a150691b099bf"
+            ]
+        ]
+    },
+    {
+        "id": "38a0c0cb4f4b63dd",
+        "type": "http request",
+        "z": "f52f0411d560d0ad",
+        "name": "/api/service/system/detectsystems",
+        "method": "GET",
+        "ret": "obj",
+        "paytoqs": "ignore",
+        "url": "http://127.0.0.1/api/service/system/detectsystems",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 460,
+        "y": 180,
+        "wires": [
+            [
+                "8847441e1456a176"
+            ]
+        ]
+    },
+    {
+        "id": "8847441e1456a176",
+        "type": "extract-system",
+        "z": "f52f0411d560d0ad",
+        "name": "extract system",
+        "hostname": "andyb-laptop",
+        "x": 740,
+        "y": 240,
+        "wires": [
+            [
+                "05606a30204be44b"
+            ]
+        ]
+    },
+    {
+        "id": "be8a150691b099bf",
+        "type": "http request",
+        "z": "f52f0411d560d0ad",
+        "name": "/api/session/status/health",
+        "method": "GET",
+        "ret": "obj",
+        "paytoqs": "ignore",
+        "url": "http://127.0.0.1/api/session/status/health",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 490,
+        "y": 320,
+        "wires": [
+            [
+                "dc7d7f975bd163a0"
+            ]
+        ]
+    },
+    {
+        "id": "dc7d7f975bd163a0",
+        "type": "extract-health",
+        "z": "f52f0411d560d0ad",
+        "name": "",
+        "hostname": "andyb-laptop",
+        "x": 740,
+        "y": 320,
+        "wires": [
+            [
+                "dc280bf794d38202",
+                "9d6ddfeccd507f39"
+            ]
+        ]
+    },
+    {
+        "id": "dc280bf794d38202",
+        "type": "debug",
+        "z": "f52f0411d560d0ad",
+        "name": "debug 2",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 960,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "9d6ddfeccd507f39",
+        "type": "extract-health-state",
+        "z": "f52f0411d560d0ad",
+        "name": "",
+        "stateName": "Live Update",
+        "x": 990,
+        "y": 400,
+        "wires": [
+            [
+                "7a5de003b75bdc61"
+            ]
+        ]
+    },
+    {
+        "id": "7a5de003b75bdc61",
+        "type": "debug",
+        "z": "f52f0411d560d0ad",
+        "name": "debug 3",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1220,
+        "y": 400,
+        "wires": []
+    }
+]
